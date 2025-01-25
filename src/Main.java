@@ -1,9 +1,13 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        Die one = new Die();
-        for(int i = 0; i < 10; i++) {
-            System.out.println(one.roll());
-        }
+        Player playerOne = new Player("Ishan");
+        Dice dice = new Dice();
+
+        boolean[] keep = new boolean[] {false, false, false, true, true};
+        System.out.println(playerOne.getName() + " made a roll 1 of: " + Arrays.toString(dice.roll(keep)));
+        System.out.println(playerOne.getName() + " made a roll 2 of: " + Arrays.toString(dice.roll(keep)));
+        System.out.println(playerOne.getName() + " made a roll 3 of: " + Arrays.toString(dice.roll(keep)));
     }
 }
