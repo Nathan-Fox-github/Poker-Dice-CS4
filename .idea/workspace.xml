@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="481abe85-900b-4651-9604-85be508a190f" name="Changes" comment="Dice class getCombo method">
-      <change afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/Dice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/Dice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="481abe85-900b-4651-9604-85be508a190f" name="Changes" comment="Creation of run method and game loop" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -146,7 +139,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737790039565</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Creation of Game class and Dice Locking methods">
+      <option name="closed" value="true" />
+      <created>1737886078430</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1737886078430</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Creation of run method and game loop">
+      <option name="closed" value="true" />
+      <created>1737929807284</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1737929807284</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,6 +174,8 @@
     <MESSAGE value="changes to readme.md" />
     <MESSAGE value="creation of Die, Player, and Dice classes" />
     <MESSAGE value="Dice class getCombo method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dice class getCombo method" />
+    <MESSAGE value="Creation of Game class and Dice Locking methods" />
+    <MESSAGE value="Creation of run method and game loop" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creation of run method and game loop" />
   </component>
 </project>
