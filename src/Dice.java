@@ -1,12 +1,14 @@
 public class Dice {
     private final Die[] Dice;
     private int[] values;
+    private boolean[] exclude;
     private final int SIZE;
 
     public Dice() {
         SIZE = 5;
         this.Dice = new Die[SIZE];
         values = new int[SIZE];
+        exclude = new boolean[SIZE];
 
         Dice[0] = new Die();
         Dice[1] = new Die();
@@ -21,7 +23,7 @@ public class Dice {
         values[4] = Dice[4].getCurrentValue();
     }
 
-    public int[] roll(boolean[] exclude) {
+    public int[] roll() {
         int[] outcome = new int[SIZE];
 
         for (int i = 0; i < SIZE; i++) {
@@ -33,6 +35,15 @@ public class Dice {
 
         values = outcome;
         return outcome;
+    }
+
+    //could cause index out of bounds exception
+    public void toggleDieLock(int index) {
+        exclude[index] = !exclude[index];
+    }
+
+    public void unlockAllDie() {
+        exclude = new boolean[SIZE];
     }
 
     private int[] getCounts() {
