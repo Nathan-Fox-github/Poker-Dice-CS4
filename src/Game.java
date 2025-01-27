@@ -1,16 +1,26 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Game {
-    ArrayList<Player> players;
-    Dice dice;
-    Scanner sc;
+    private ArrayList<Player> players;
+    private final Dice dice;
+    private final Scanner sc;
+    private final int turns;
 
     public Game(){
         players = new ArrayList<>();
         dice = new Dice();
         sc = new Scanner(System.in);
+        turns = 10;
+    }
+
+    public Game(int turns){
+        players = new ArrayList<>();
+        dice = new Dice();
+        sc = new Scanner(System.in);
+        this.turns = turns;
     }
 
     public void addPlayer(Player player) {
@@ -29,8 +39,8 @@ public class Game {
         System.out.println("'Cont' - End your turn");
         System.out.println("---------------------------");
 
-        while(playing) {
-            System.out.println("Player Scores (round " + round + "):");
+        for(int i = 0; i < turns; i++) {
+            System.out.println("Player Scores (round " + round + "/" + turns + "):");
             for(Player player: players) {
                 System.out.println(player.getName() + " - " + player.getScore());
             }
@@ -80,5 +90,14 @@ public class Game {
             round++;
             System.out.println("---------------------------");
         }
+
+        System.out.println("Final Scores:");
+        Player winner = players.getFirst();
+        for(Player player: players) {
+            if(player.getScore() > winner.getScore()) winner = player;
+            System.out.println(player.getName() + " - " + player.getScore());
+        }
+
+        System.out.println("\nThe winner is " + winner.getName() + " with " + winner.getScore() + " points!");
     }
 }

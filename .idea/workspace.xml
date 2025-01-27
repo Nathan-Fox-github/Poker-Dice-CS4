@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="481abe85-900b-4651-9604-85be508a190f" name="Changes" comment="Creation of run method and game loop" />
+    <list default="true" id="481abe85-900b-4651-9604-85be508a190f" name="Changes" comment="Pushing Game.class">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,7 +162,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737929807284</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Creation of run method and game loop">
+      <option name="closed" value="true" />
+      <created>1737929907661</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1737929907661</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Pushing Game.class">
+      <option name="closed" value="true" />
+      <created>1737930015965</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1737930015965</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -176,6 +199,7 @@
     <MESSAGE value="Dice class getCombo method" />
     <MESSAGE value="Creation of Game class and Dice Locking methods" />
     <MESSAGE value="Creation of run method and game loop" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creation of run method and game loop" />
+    <MESSAGE value="Pushing Game.class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pushing Game.class" />
   </component>
 </project>
