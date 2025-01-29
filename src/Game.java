@@ -27,6 +27,10 @@ public class Game {
         players.add(player);
     }
 
+    public int  getPlayerCount() {
+        return players.size();
+    }
+
     public void run() {
         boolean playing = true;
         int round = 1;
