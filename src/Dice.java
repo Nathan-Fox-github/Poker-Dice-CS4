@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+
 public class Dice {
     private final Die[] Dice;
     private int[] values;
@@ -95,5 +97,11 @@ public class Dice {
         };
 
         return combos[highestCombo];
+    }
+
+    public void showRoll() {
+        System.out.println("Hi");
+        System.out.println("Hi");
+        System.out.println("\r\rBye");
     }
 }

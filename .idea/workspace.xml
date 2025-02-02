@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="481abe85-900b-4651-9604-85be508a190f" name="Changes" comment="Implemented Game rounds and README.md">
+    <list default="true" id="481abe85-900b-4651-9604-85be508a190f" name="Changes" comment="Created crappy Java Swing GUI beginning">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Poker_Dice_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/Dice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/Dice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/Die.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/Die.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -38,12 +44,12 @@
     &quot;assignee&quot;: &quot;Nathan-Fox-github&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Nathan-Fox-github/Poker-Dice-CS4.git",
-    "accountId": "b4c2c087-c8ec-4c73-ac18-d00e30e027db"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Nathan-Fox-github/Poker-Dice-CS4.git&quot;,
+    &quot;accountId&quot;: &quot;b4c2c087-c8ec-4c73-ac18-d00e30e027db&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
@@ -64,10 +70,11 @@
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;F:/CS4/Poker Dice&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
@@ -190,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737942230113</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Created crappy Java Swing GUI beginning">
+      <option name="closed" value="true" />
+      <created>1738113207478</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1738113207478</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,6 +240,7 @@
     <MESSAGE value="Creation of run method and game loop" />
     <MESSAGE value="Pushing Game.class" />
     <MESSAGE value="Implemented Game rounds and README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented Game rounds and README.md" />
+    <MESSAGE value="Created crappy Java Swing GUI beginning" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created crappy Java Swing GUI beginning" />
   </component>
 </project>

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Game {
     private ArrayList<Player> players;
-    private final Dice dice;
+    public final Dice dice;
     private final Scanner sc;
     private final int turns;
 
@@ -29,6 +29,22 @@ public class Game {
 
     public int  getPlayerCount() {
         return players.size();
+    }
+
+    public int[] roll() {
+        return dice.roll();
+    }
+
+    public String getCombo() {
+        return dice.getCombo();
+    }
+
+    public int getTurns() {
+        return turns;
+    }
+
+    public ArrayList<Player> getPlayers() {
+        return players;
     }
 
     public void run() {
@@ -82,6 +98,7 @@ public class Game {
                 String combo = dice.getCombo();
                 switch (combo) {
                     case ("Five of a Kind") -> currentPlayer.addScore(100);
+                    case ("Straight") -> currentPlayer.addScore(80);
                     case ("Four of a Kind") -> currentPlayer.addScore(50);
                     case ("Full House") -> currentPlayer.addScore(30);
                     case ("Three of a Kind") -> currentPlayer.addScore(20);
