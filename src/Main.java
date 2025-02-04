@@ -49,10 +49,11 @@ public class Main {
     }
 
     private JPanel createSetupPage() {
-        JPanel setupPage = new JPanel(new BorderLayout());
+        JPanel setupPage = new JPanel(new GridLayout(1,2));
+        JPanel inputPanel = new JPanel(new GridLayout(3, 1));
 
         // --- Player List Panel ---
-        JPanel playerListPanel = new JPanel(new BorderLayout());
+        JPanel playerListPanel = new JPanel();
         playerListModel = new DefaultListModel<>();
         playerList = new JList<>(playerListModel);
         JScrollPane scrollPane = new JScrollPane(playerList);
@@ -70,9 +71,6 @@ public class Main {
                 JOptionPane.showMessageDialog(frame, "Max players reached.");
             }
         });
-
-        playerListPanel.add(scrollPane, BorderLayout.CENTER);
-        playerListPanel.add(addPlayerButton, BorderLayout.SOUTH);
 
         // --- Rounds Spinner ---
         roundsSpinner = new JSpinner(new SpinnerNumberModel(5, 1, 20, 1));
@@ -98,9 +96,12 @@ public class Main {
         });
 
         // Layout the setup page
-        setupPage.add(playerListPanel, BorderLayout.CENTER);
-        setupPage.add(startButton, BorderLayout.SOUTH);
-        setupPage.add(roundsSpinner, BorderLayout.NORTH);
+        playerListPanel.add(scrollPane);
+        inputPanel.add(addPlayerButton);
+        inputPanel.add(roundsSpinner);
+        inputPanel.add(startButton);
+        setupPage.add(inputPanel);
+        setupPage.add(playerListPanel);
 
         return setupPage;
     }
@@ -245,10 +246,10 @@ class GamePanel extends JPanel implements ActionListener {
     private int getScoreForCombo(String combo) {
         return switch (combo) {
             case "Five of a Kind" -> 100;
+            case "Straight" -> 80;
             case "Four of a Kind" -> 50;
             case "Full House" -> 30;
             case "Three of a Kind" -> 20;
-            case "Straight" -> 80;
             case "Two Pairs" -> 10;
             case "One Pair" -> 5;
             default -> 0;
