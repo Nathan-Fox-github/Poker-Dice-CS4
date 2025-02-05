@@ -137,19 +137,36 @@ class GamePanel extends JPanel implements ActionListener {
     }
 
     private void initComponents() {
-        // Top panel shows round and current player info
-        JPanel topPanel = new JPanel(new GridLayout(1, 2));
+        GridBagConstraints gbc = new GridBagConstraints();
+        // Top panel shows round and current player info and combo
+        JPanel topPanel = new JPanel(new GridBagLayout());
         roundLabel = new JLabel();
         currentPlayerLabel = new JLabel();
-        topPanel.add(roundLabel);
-        topPanel.add(currentPlayerLabel);
+
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.weightx = 1;
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.gridwidth = 2;
+        topPanel.add(roundLabel, gbc);
+
+        gbc.gridx = 3;
+        topPanel.add(currentPlayerLabel, gbc);
         add(topPanel, BorderLayout.NORTH);
 
         // Center panel displays dice roll and combo result
-        JPanel centerPanel = new JPanel(new GridLayout(3, 1));
-        diceLabel = new JLabel("Dice: ");
-        diceLabel.setFont(new Font("Monospaced", Font.BOLD, 18));
-        centerPanel.add(diceLabel);
+        JPanel centerPanel = new JPanel(new GridBagLayout());
+        JPanel dicePanel = new JPanel();
+        diceLabel = new JLabel("");
+        diceLabel.setFont(new Font("Monospaced", Font.BOLD, 42));
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 1;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+
+        centerPanel.setBackground(Color.RED);
+        dicePanel.add(diceLabel);
+        centerPanel.add(dicePanel, gbc);
 
         // Panel for dice locks (checkboxes for each die)
         JPanel lockPanel = new JPanel();
@@ -163,10 +180,17 @@ class GamePanel extends JPanel implements ActionListener {
             });
             lockPanel.add(lockCheckBoxes[i]);
         }
-        centerPanel.add(lockPanel);
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.weightx = 1;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        centerPanel.add(lockPanel, gbc);
 
         comboLabel = new JLabel("Combo: ");
-        centerPanel.add(comboLabel);
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.gridx = 5;
+        gbc.gridy = 0;
+        topPanel.add(comboLabel, gbc);
         add(centerPanel, BorderLayout.CENTER);
 
         // Bottom panel with control buttons and scoreboard
@@ -184,9 +208,11 @@ class GamePanel extends JPanel implements ActionListener {
 
         // Scoreboard on the side
         scoreboardPanel = new JPanel();
+        scoreboardPanel.setSize(200, 500);
+        scoreboardPanel.setBackground(Color.BLUE);
         scoreboardPanel.setLayout(new BoxLayout(scoreboardPanel, BoxLayout.Y_AXIS));
         updateScoreboard();
-        bottomPanel.add(scoreboardPanel, BorderLayout.EAST);
+        add(scoreboardPanel, BorderLayout.EAST);
 
         add(bottomPanel, BorderLayout.SOUTH);
     }
@@ -196,7 +222,7 @@ class GamePanel extends JPanel implements ActionListener {
         roundLabel.setText("Round: " + currentRound + " / " + game.getTurns());
         currentPlayerLabel.setText("Current Player: " + game.getPlayers().get(currentPlayerIndex).getName());
         // Initially, no dice roll has happened.
-        diceLabel.setText("Dice: [?, ?, ?, ?, ?]");
+        diceLabel.setText("[?, ?, ?, ?, ?]");
         comboLabel.setText("Combo: ");
     }
 
@@ -216,7 +242,7 @@ class GamePanel extends JPanel implements ActionListener {
         if (src == rollButton) {
             if (currentRoll <= maxRolls) {
                 int[] dice = game.roll();
-                diceLabel.setText("Dice: " + arrayToString(dice));
+                diceLabel.setText(arrayToString(dice));
                 // Get combo result (stub – replace with your own logic)
                 String combo = game.getCombo();
                 comboLabel.setText("Combo: " + combo);

@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="481abe85-900b-4651-9604-85be508a190f" name="Changes" comment="Created Game application created">
-      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="481abe85-900b-4651-9604-85be508a190f" name="Changes" comment="GUI updated and mockup created.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -214,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738534172875</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="GUI updated and mockup created.">
+      <option name="closed" value="true" />
+      <created>1738677756524</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1738677756524</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,6 +254,7 @@
     <MESSAGE value="Implemented Game rounds and README.md" />
     <MESSAGE value="Created crappy Java Swing GUI beginning" />
     <MESSAGE value="Created Game application created" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created Game application created" />
+    <MESSAGE value="GUI updated and mockup created." />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI updated and mockup created." />
   </component>
 </project>
