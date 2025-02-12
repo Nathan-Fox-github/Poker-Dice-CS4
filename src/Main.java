@@ -1,11 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Main class to launch the Poker Dice application.
+ */
 public class Main {
+    /**
+     * Entry point of the application.
+     * @param args Command-line arguments
+     */
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new Main().createAndShowGUI();
-        });
+        SwingUtilities.invokeLater(() -> new Main().createAndShowGUI());
     }
 
     private JFrame frame;
@@ -13,13 +18,15 @@ public class Main {
     private CardLayout cardLayout;
     private Game game;
     private DefaultListModel<String> playerListModel;
-    private JList<String> playerList;
     private JSpinner roundsSpinner;
 
+    /**
+     * Creates and displays the main GUI window for the Poker Dice game.
+     */
     private void createAndShowGUI() {
         frame = new JFrame("Poker Dice");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 500);
+        frame.setSize(900, 500);
 
         // Set up CardLayout for pages
         cardLayout = new CardLayout();
@@ -27,7 +34,7 @@ public class Main {
 
         // Create the setup and game pages
         JPanel setupPage = createSetupPage();
-        JPanel gamePage = new JPanel(new BorderLayout());  // placeholder; will be replaced with GamePanel later
+        JPanel gamePage = new JPanel(new BorderLayout());
 
         pages.add(setupPage, "Setup");
         pages.add(gamePage, "Game");
@@ -35,10 +42,14 @@ public class Main {
         frame.setLayout(new BorderLayout());
         frame.add(pages, BorderLayout.CENTER);
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
     }
 
+    /**
+     * Creates the setup page UI, allowing players to be added and game options to be configured.
+     * @return A JPanel representing the setup page
+     */
     private JPanel createSetupPage() {
-        // Use a BorderLayout with padding for a modern look
         JPanel setupPage = new JPanel(new BorderLayout(10, 10));
         setupPage.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
@@ -58,7 +69,9 @@ public class Main {
         JPanel addPlayerPanel = new JPanel(new BorderLayout(5, 5));
         JTextField playerNameField = new JTextField();
         JButton addPlayerButton = new JButton("Add Player");
-        addPlayerButton.addActionListener(e -> {
+
+        // Action listener to add a player
+        addPlayerButton.addActionListener(_ -> {
             String name = playerNameField.getText().trim();
             if (!name.isEmpty() && playerListModel.getSize() < 6) {
                 playerListModel.addElement(name);
@@ -69,13 +82,14 @@ public class Main {
                 JOptionPane.showMessageDialog(frame, "Enter a valid name.");
             }
         });
+
         addPlayerPanel.add(playerNameField, BorderLayout.CENTER);
         addPlayerPanel.add(addPlayerButton, BorderLayout.EAST);
         playersPanel.add(addPlayerPanel, BorderLayout.NORTH);
 
         // The list of players in a scroll pane
         playerListModel = new DefaultListModel<>();
-        playerList = new JList<>(playerListModel);
+        JList<String> playerList = new JList<>(playerListModel);
         JScrollPane playerScrollPane = new JScrollPane(playerList);
         playerScrollPane.setPreferredSize(new Dimension(200, 150));
         playersPanel.add(playerScrollPane, BorderLayout.CENTER);
@@ -104,7 +118,9 @@ public class Main {
         // --- Bottom Panel: Start Game Button ---
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         JButton startButton = new JButton("Start Game");
-        startButton.addActionListener(e -> {
+
+        // Action listener to start the game
+        startButton.addActionListener(_ -> {
             if (playerListModel.isEmpty()) {
                 JOptionPane.showMessageDialog(frame, "Enter at least 1 player.");
             } else {
@@ -113,13 +129,12 @@ public class Main {
                 for (int i = 0; i < playerListModel.size(); i++) {
                     game.addPlayer(new Player(playerListModel.get(i)));
                 }
-                // Create the GamePanel (which contains the game loop logic)
                 GamePanel gamePanel = new GamePanel(game);
-                // Replace the placeholder game page with our game panel
                 pages.add(gamePanel, "Game");
                 cardLayout.show(pages, "Game");
             }
         });
+
         bottomPanel.add(startButton);
         setupPage.add(bottomPanel, BorderLayout.SOUTH);
 

@@ -4,14 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="481abe85-900b-4651-9604-85be508a190f" name="Changes" comment="GUI updated.">
-      <change afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="481abe85-900b-4651-9604-85be508a190f" name="Changes" comment="GUI updated with working half-decent game.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/Dice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/Dice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/Die.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/Die.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/GamePanel$DiceAnimationPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/GamePanel$DiceAnimationPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/GamePanel$DiceAnimationPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/GamePanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Poker Dice/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker Dice/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Die.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Die.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +55,7 @@
   }
 }]]></component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -257,7 +265,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738764103803</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="GUI updated with working half-decent game.">
+      <option name="closed" value="true" />
+      <created>1739318379717</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1739318379717</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -296,6 +312,7 @@
     <MESSAGE value="Created Game application created" />
     <MESSAGE value="GUI updated and mockup created." />
     <MESSAGE value="GUI updated." />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI updated." />
+    <MESSAGE value="GUI updated with working half-decent game." />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI updated with working half-decent game." />
   </component>
 </project>

@@ -3,13 +3,16 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * The GamePanel class represents the main UI panel for the dice game.
+ * It manages the game state, handles user interactions, updates the scoreboard,
+ * and animates dice rolls.
+ */
 class GamePanel extends JPanel implements ActionListener {
-    private Game game;
-    // Game state
-    private int currentRound = 1;
-    private int currentPlayerIndex = 0;
-    private int currentRoll = 1;
-    private final int maxRolls = 3;
+    private final Game game; // Reference to the game logic
+    private int currentRound = 1; // Tracks the current round number
+    private int currentPlayerIndex = 0; // Index of the current player
+    private int currentRoll = 1; // Tracks the number of rolls in the current turn
 
     // GUI components
     private JLabel roundLabel;
@@ -19,10 +22,12 @@ class GamePanel extends JPanel implements ActionListener {
     private JButton rollButton;
     private JButton contButton;
     private JCheckBox[] lockCheckBoxes;
+    private DiceAnimationPanel diceAnimationPanel; // Custom panel for dice animation
 
-    // Custom dice animation panel
-    private DiceAnimationPanel diceAnimationPanel;
-
+    /**
+     * Constructs a GamePanel with the specified Game object.
+     * @param game The game logic instance.
+     */
     public GamePanel(Game game) {
         this.game = game;
         setLayout(new BorderLayout(10, 10));
@@ -31,6 +36,9 @@ class GamePanel extends JPanel implements ActionListener {
         updateDisplay();
     }
 
+    /**
+     * Initializes all GUI components including labels, buttons, and dice panel.
+     */
     private void initComponents() {
         // --- Top Panel: Header ---
         JPanel headerPanel = new JPanel(new GridLayout(1, 3, 10, 10));
@@ -53,7 +61,7 @@ class GamePanel extends JPanel implements ActionListener {
         centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
         centerPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        // Dice animation panel (remains unchanged in functionality)
+        // Dice animation panel
         diceAnimationPanel = new DiceAnimationPanel();
         centerPanel.add(diceAnimationPanel);
 
@@ -64,7 +72,7 @@ class GamePanel extends JPanel implements ActionListener {
             lockCheckBoxes[i] = new JCheckBox();
             lockCheckBoxes[i].setPreferredSize(new Dimension(50, 50));
             final int index = i;
-            lockCheckBoxes[i].addActionListener(e -> {
+            lockCheckBoxes[i].addActionListener(_ -> {
                 // Toggle the lock state on the corresponding die.
                 game.dice.toggleDieLock(index);
             });
@@ -94,7 +102,10 @@ class GamePanel extends JPanel implements ActionListener {
         add(scoreboardPanel, BorderLayout.EAST);
     }
 
-    // Update header labels and clear the dice animation at the start of each turn.
+    /**
+     * Updates the game display including the round number, current player,
+     * and clears the dice display.
+     */
     private void updateDisplay() {
         roundLabel.setText("Round: " + currentRound + " / " + game.getTurns());
         currentPlayerLabel.setText("Current Player: " + game.getPlayers().get(currentPlayerIndex).getName());
@@ -102,7 +113,9 @@ class GamePanel extends JPanel implements ActionListener {
         comboLabel.setText("Combo: ");
     }
 
-    // Update the scoreboard with each player's current score.
+    /**
+     * Refreshes the scoreboard with current player scores.
+     */
     private void updateScoreboard() {
         scoreboardPanel.removeAll();
         for (Player p : game.getPlayers()) {
@@ -114,15 +127,19 @@ class GamePanel extends JPanel implements ActionListener {
         scoreboardPanel.repaint();
     }
 
+    /**
+     * Handles button click events for rolling dice and continuing to the next turn.
+     * @param e The action event triggered by button clicks.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         Object src = e.getSource();
         if (src == rollButton) {
-            if (currentRoll <= maxRolls) {
+            if (currentRoll <= 3) { // 3 is maximum allowed roles
                 // Roll the dice and animate.
                 int[] dice = game.roll();
                 diceAnimationPanel.animateRoll(dice);
-                // Update combo info (logic stub).
+                // Update combo info.
                 String combo = game.getCombo();
                 comboLabel.setText("Combo: " + combo);
                 currentRoll++;
@@ -146,7 +163,11 @@ class GamePanel extends JPanel implements ActionListener {
         }
     }
 
-    // Determine score based on the combo string.
+    /**
+     * Determines the score based on the player's combo.
+     * @param combo The current combo achieved by the player.
+     * @return The corresponding score.
+     */
     private int getScoreForCombo(String combo) {
         return switch (combo) {
             case "Five of a Kind" -> 100;
@@ -160,7 +181,9 @@ class GamePanel extends JPanel implements ActionListener {
         };
     }
 
-    // Manage turn progression.
+    /**
+     * Advances the game to the next player's turn or the next round.
+     */
     private void nextTurn() {
         currentRoll = 1;
         currentPlayerIndex++;
@@ -178,9 +201,13 @@ class GamePanel extends JPanel implements ActionListener {
         updateDisplay();
     }
 
-    // Determine the winning player.
+    /**
+     * Checks to see which player has the highest score.
+     *
+     * @return The name of the player with the highest score.
+     */
     private String determineWinner() {
-        Player winner = game.getPlayers().get(0);
+        Player winner = game.getPlayers().getFirst();
         for (Player p : game.getPlayers()) {
             if (p.getScore() > winner.getScore()) {
                 winner = p;
@@ -189,8 +216,9 @@ class GamePanel extends JPanel implements ActionListener {
         return winner.getName() + " with " + winner.getScore() + " points";
     }
 
-    //////////////////////////////////////////////////////////////////////////////
-    // Inner class for animating 5 dice.
+    /**
+     * Inner class for animating dice rolls.
+     */
     static class DiceAnimationPanel extends JPanel {
         private int[] finalDiceValues = new int[]{1, 1, 1, 1, 1};
         private int animationFrame = 0;
@@ -199,16 +227,21 @@ class GamePanel extends JPanel implements ActionListener {
         private boolean animating = false;
 
         public DiceAnimationPanel() {
-            setPreferredSize(new Dimension(600, 150));
+            setPreferredSize(new Dimension(750, 150));
         }
 
-        // Clears the dice display.
+        /**
+         * Clears the dice display.
+         */
         public void clearDice() {
             animating = false;
             repaint();
         }
 
-        // Animate the roll using the given dice values.
+        /**
+         * Animates the dice roll.
+         * @param diceValues The final values of the dice after rolling.
+         */
         public void animateRoll(int[] diceValues) {
             this.finalDiceValues = diceValues;
             animationFrame = 0;
@@ -216,16 +249,13 @@ class GamePanel extends JPanel implements ActionListener {
             if (timer != null && timer.isRunning()) {
                 timer.stop();
             }
-            timer = new Timer(150, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    animationFrame++;
-                    if (animationFrame >= TOTAL_FRAMES) {
-                        animating = false;
-                        timer.stop();
-                    }
-                    repaint();
+            timer = new Timer(150, _ -> {
+                animationFrame++;
+                if (animationFrame >= TOTAL_FRAMES) {
+                    animating = false;
+                    timer.stop();
                 }
+                repaint();
             });
             timer.start();
         }
@@ -250,7 +280,14 @@ class GamePanel extends JPanel implements ActionListener {
             }
         }
 
-        // Draw a single die with pips based on the die value.
+        /**
+         * Draws a die on the panel.
+         * @param g The graphics context.
+         * @param value The value to display on the die.
+         * @param x The x-coordinate.
+         * @param y The y-coordinate.
+         * @param size The size of the die.
+         */
         private void drawDie(Graphics g, int value, int x, int y, int size) {
             g.setColor(Color.BLACK);
             g.drawRect(x, y, size, size);
