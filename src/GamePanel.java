@@ -64,6 +64,7 @@ class GamePanel extends JPanel implements ActionListener {
         // Dice animation panel
         diceAnimationPanel = new DiceAnimationPanel();
         centerPanel.add(diceAnimationPanel);
+        diceAnimationPanel.animateRoll(game.roll());
 
         // Panel for dice locks (checkboxes)
         JPanel lockPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
@@ -72,7 +73,7 @@ class GamePanel extends JPanel implements ActionListener {
             lockCheckBoxes[i] = new JCheckBox();
             lockCheckBoxes[i].setPreferredSize(new Dimension(50, 50));
             final int index = i;
-            lockCheckBoxes[i].addActionListener(_ -> {
+            lockCheckBoxes[i].addActionListener(e -> {
                 // Toggle the lock state on the corresponding die.
                 game.dice.toggleDieLock(index);
             });
@@ -154,6 +155,7 @@ class GamePanel extends JPanel implements ActionListener {
             JOptionPane.showMessageDialog(this, game.getPlayers().get(currentPlayerIndex).getName()
                     + " scored " + scoreToAdd + " points for " + combo);
             game.dice.unlockAllDie();
+            diceAnimationPanel.animateRoll(game.roll());
             // Reset checkboxes.
             for (JCheckBox cb : lockCheckBoxes) {
                 cb.setSelected(false);
@@ -207,7 +209,7 @@ class GamePanel extends JPanel implements ActionListener {
      * @return The name of the player with the highest score.
      */
     private String determineWinner() {
-        Player winner = game.getPlayers().getFirst();
+        Player winner = game.getPlayers().get(0);
         for (Player p : game.getPlayers()) {
             if (p.getScore() > winner.getScore()) {
                 winner = p;
@@ -249,7 +251,7 @@ class GamePanel extends JPanel implements ActionListener {
             if (timer != null && timer.isRunning()) {
                 timer.stop();
             }
-            timer = new Timer(150, _ -> {
+            timer = new Timer(150, t -> {
                 animationFrame++;
                 if (animationFrame >= TOTAL_FRAMES) {
                     animating = false;

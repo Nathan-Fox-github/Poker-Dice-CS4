@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Main class to launch the Poker Dice application.
@@ -19,6 +21,9 @@ public class Main {
     private Game game;
     private DefaultListModel<String> playerListModel;
     private JSpinner roundsSpinner;
+    private JMenuBar menuBar = new JMenuBar();
+    private JMenu helpMenu = new JMenu("Help");
+    private JMenuItem howToPlay = new JMenuItem("How to Play");
 
     /**
      * Creates and displays the main GUI window for the Poker Dice game.
@@ -38,6 +43,12 @@ public class Main {
 
         pages.add(setupPage, "Setup");
         pages.add(gamePage, "Game");
+
+        // --- Menu Bar ---
+        howToPlay.addActionListener(e -> showHowToPlay());
+        helpMenu.add(howToPlay);
+        menuBar.add(helpMenu);
+        frame.setJMenuBar(menuBar);
 
         frame.setLayout(new BorderLayout());
         frame.add(pages, BorderLayout.CENTER);
@@ -71,7 +82,7 @@ public class Main {
         JButton addPlayerButton = new JButton("Add Player");
 
         // Action listener to add a player
-        addPlayerButton.addActionListener(_ -> {
+        addPlayerButton.addActionListener(e -> {
             String name = playerNameField.getText().trim();
             if (!name.isEmpty() && playerListModel.getSize() < 6) {
                 playerListModel.addElement(name);
@@ -120,7 +131,7 @@ public class Main {
         JButton startButton = new JButton("Start Game");
 
         // Action listener to start the game
-        startButton.addActionListener(_ -> {
+        startButton.addActionListener(e -> {
             if (playerListModel.isEmpty()) {
                 JOptionPane.showMessageDialog(frame, "Enter at least 1 player.");
             } else {
@@ -139,5 +150,32 @@ public class Main {
         setupPage.add(bottomPanel, BorderLayout.SOUTH);
 
         return setupPage;
+    }
+
+    /**
+     * Displays a pop-up dialog with instructions on how to play Poker Dice.
+     *
+     * The dialog explains the basic rules of the game, including how players roll
+     * and hold dice, how hands are ranked similar to poker, and how points are distributed.
+     * It also describes the layout of the game interface.
+     *
+     * The instructions appear in a JOptionPane as an informational message.
+     */
+    private void showHowToPlay() {
+        String instructions = "Poker Dice is played using 5 dice. The goal is to roll the best poker hand.\n" +
+                "Rules:\n" +
+                "- Each player rolls five dice.\n" +
+                "- You can roll the dice up to three times by clicking the 'Roll' button.\n" +
+                "- If you are satisfied with your hand, you may collect your points and\n" +
+                "  move to the next player's turn by clicking the 'Cont' button.\n" +
+                "- You can hold any of the dice by checking the boxes underneath the desired die;\n" +
+                "  dice that are held will not change when re-rolled.\n" +
+                "- Hands are ranked similar to poker (Full House, Straight, etc.).\n" +
+                "- Points are distributed based on the rarity of the hand (higher hand = more points).\n" +
+                "- The player with the highest accumulated points by the last round wins.\n" +
+                "Layout:\n" +
+                "- Information about the game can be seen at the top.\n" +
+                "- Player scores can be seen on the right.";
+        JOptionPane.showMessageDialog(null, instructions, "How to Play", JOptionPane.INFORMATION_MESSAGE);
     }
 }
