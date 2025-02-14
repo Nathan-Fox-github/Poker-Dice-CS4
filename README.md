@@ -4,3 +4,4 @@
 - [x] get game working 1/26/25
 - [x] get Java Graphics for game
 - [x] make app look good
+- [ ] make AI
